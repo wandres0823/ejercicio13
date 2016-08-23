@@ -52,6 +52,11 @@ public class Ejercicio13 extends javax.swing.JFrame {
         jLabel3.setText("numero de persona :");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 160, 20));
 
+        txtNummero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNummeroActionPerformed(evt);
+            }
+        });
         txtNummero.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNummeroKeyTyped(evt);
@@ -109,7 +114,11 @@ public class Ejercicio13 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPersonaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+     txtNummero.setText("");
+        txtPersona.setText("");
+        txtIva.setText("");
+        
+        txtNummero.requestFocusInWindow();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtNummeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNummeroKeyTyped
@@ -145,7 +154,7 @@ public class Ejercicio13 extends javax.swing.JFrame {
     private void cmdPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdPagarActionPerformed
         
         String re;
-        double nf,nd,civa,np;
+        long nf,nd,civa,np;
         
         
          if(txtNummero.getText().isEmpty()){
@@ -160,8 +169,8 @@ public class Ejercicio13 extends javax.swing.JFrame {
        
         
 
-        nf=Double.parseDouble(txtNummero.getText());
-       np =Double.parseDouble(txtPersona.getText());
+        nf=Long.parseLong(txtNummero.getText());
+       np =Long.parseLong(txtPersona.getText());
        
       nf=(25000*np);
         civa=(nf*25000*12/100);
@@ -170,6 +179,10 @@ public class Ejercicio13 extends javax.swing.JFrame {
         txtIva.setText(re);
          }
     }//GEN-LAST:event_cmdPagarActionPerformed
+
+    private void txtNummeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNummeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNummeroActionPerformed
 
     /**
      * @param args the command line arguments
